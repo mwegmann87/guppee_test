@@ -9,8 +9,22 @@ def set_values(field_id):
     if solvent:
         st.session_state["input_density" + field_id] = solvents_dict[solvent]["density"]
         st.session_state["input_viscosity" + field_id] = solvents_dict[solvent]["d_viscosity"]
-    
+
+def get_form_values():
+    values_list = []
+    for field in [vol1, vol1, vol3, visc1, visc2, visc3]:
+        values_list.append(field / 1000)
+    for field in [density1, density2, density3]:
+        values_list.append(field)
+    return values_list  
+
+def calculate_mass(volume, density):
+    mass = volume * density
+    return mass  
+
 def calculate_values():
+    values_list = get_form_values()
+
     # calculate values and enable continue button
     st.write("Values calculated")
     

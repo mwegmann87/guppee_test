@@ -27,17 +27,18 @@ solvents_choices = solvents_dict.keys()
 solvents_page = st.Page("pages/1_solvents.py", title="Solvents")
 turbulence_page = st.Page("pages/2_turbulence.py", title="Turbulence")
 suspensions_page = st.Page("pages/3_suspensions.py", title="Suspensions")
-admin_page = st.Page("pages/4_admin.py", title="Admin")
-login_page = st.Page("pages/5_login.py", title="Login")
+scaleup_page = st.Page("pages/4_scaleup.py", title="Scale up")
+admin_page = st.Page("pages/5_admin.py", title="Admin")
+login_page = st.Page("pages/6_login.py", title="Login")
 
 if st.session_state.logged_in:
     pg = st.navigation({
-        "Tools": [solvents_page, turbulence_page, suspensions_page],
+        "Tools": [solvents_page, turbulence_page, suspensions_page, scaleup_page],
         "Admin": [admin_page]
     })
 else:
     pg = st.navigation({
-        "Tools": [solvents_page, turbulence_page, suspensions_page],
+        "Tools": [solvents_page, turbulence_page, suspensions_page, scaleup_page],
         "Login": [login_page]
     })    
 
