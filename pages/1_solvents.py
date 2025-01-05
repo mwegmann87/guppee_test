@@ -1,5 +1,9 @@
 import streamlit as st
-from streamlit_app import solvents_dict, solvents_choices
+from streamlit_app import solvents_dict, solvents_choices, turbulence_page
+
+# define session state for continue button
+st.session_state["button_solvents_disabled"] = True
+
 
 col1, col2, col3, col4, col5, col6, col7 = st.columns([2, 1, 1, 1, 1, 1, 1], vertical_alignment="bottom", gap="small")
 
@@ -94,5 +98,16 @@ with col4:
 with col5:
     particle_diameter = st.text_input("Particle diameter [um]", key = "particle_diameter")
 
-st.button("Calculate", key="calc_values", type="primary", on_click=calculate_values)
-st.button("Continue", key="solvents_continue", disabled=True)
+# table for buttons
+
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("Calculate", key="calc_values", type="primary", on_click=calculate_values):
+        st.session_state["button_solvents_disabled"] = False
+
+with col2:        
+    if st.button("Continue >", key="solvents_continue", disabled=st.session_state.get("button_solvents_disabled")):
+        st.switch_page(turbulence_page)
+
+    

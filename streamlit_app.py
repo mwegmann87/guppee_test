@@ -22,6 +22,13 @@ solvents_dict = {
 
 }
 
+reactors_dict = {
+    "C202": {},
+    "Easymax 100": {},
+    "Optimax 1L": {}
+}
+
+reactors_choices = reactors_dict.keys()
 solvents_choices = solvents_dict.keys()
 
 solvents_page = st.Page("pages/1_solvents.py", title="Solvents")
