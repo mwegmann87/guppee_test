@@ -34,7 +34,7 @@ def calculate_values():
     
 
 with col1:
-    solvent1 = st.selectbox("Solvent 1", solvents_choices, index=None, on_change=set_values, args="1", key="input_solvent1", 
+    solvent1 = st.selectbox("Solvent 1", solvents_choices, index=None, on_change=set_values, args="1", key="input_solvent1",
                             placeholder="Solvent 1", label_visibility="collapsed")
     solvent2 = st.selectbox("Solvent 2", solvents_choices, index=None, on_change=set_values, args="2", key="input_solvent2", 
                             placeholder="Solvent 2", label_visibility="collapsed")

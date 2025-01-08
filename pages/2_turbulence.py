@@ -11,16 +11,21 @@ col1, col2 = st.columns(2, vertical_alignment="bottom")
 
 with col1:
     reactor = st.selectbox("Raector", options=reactors_choices, key="reactor")
-    volume_liq = st.number_input("Volume liquids", value=20)
-    power_number = st.number_input("Power number [-]")
+    reactor_diameter = st.number_input("Reactor diameter [m]", key="reactor_diameter")
+    impeller_diameter = st.number_input("Impeller diameter [m]", key="impeller_diameter")
+    power_number = st.number_input("Power number (fully baffled) [-]", key="power_number")
+    liquids_mass = st.number_input("Liquids mass [kg]", key="liquids_mass")
  
 
 
 with col2:
-    solvent_mi = st.text_input("Solvent mixture", key="solvent_mix")
-    density = st.number_input("Density [kg/m3]", key="density")
+    solvent_mix = st.text_input("Solvent mixture", key="solvent_mix")
+    total_density = st.number_input("Total density [kg/m3]", key="total_density")
+    density_liq = st.number_input("Density liquids [kg/m3]", key="density_liq")
     d_viscosity = st.number_input("Dynamic viscosity [cP]", key="d_viscosity")
+    liq_volume = st.number_input("Liquids volume [L]", key="liq_volume")
 
+# comments box
 
 # table for buttons
 col1, col2, col3 = st.columns(3)
